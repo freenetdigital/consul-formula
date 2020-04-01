@@ -1,4 +1,5 @@
-{%- from slspath + '/map.jinja' import consul with context -%}
+{%- set tplroot = tpldir.split('/')[0] %}
+{%- from tplroot + '/map.jinja' import consul with context -%}
 
 consul-dep-unzip:
   pkg.installed:
@@ -37,7 +38,7 @@ consul-config-dir:
     - name: /etc/consul.d
     - user: {{ consul.user }}
     - group: {{ consul.group }}
-    - mode: 0750
+    - mode: '0750'
 
 consul-data-dir:
   file.directory:
@@ -45,7 +46,7 @@ consul-data-dir:
     - makedirs: True
     - user: {{ consul.user }}
     - group: {{ consul.group }}
-    - mode: 0750
+    - mode: '0750'
 
 # Install agent
 consul-download:
