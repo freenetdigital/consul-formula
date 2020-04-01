@@ -46,7 +46,6 @@ consul-data-dir:
     - makedirs: True
     - user: {{ consul.user }}
     - group: {{ consul.group }}
-    - mode: '0750'
 
 # Install agent
 consul-download:
